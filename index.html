@@ -7,6 +7,21 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+
+    <!-- PWA Meta Tags -->
+    <meta name="description" content="一键点亮你的盛世美颜 - 美颜补光灯应用">
+    <meta name="theme-color" content="#ff4081">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- iOS PWA Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="美颜补光灯">
+
+    <!-- PWA Icons -->
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icons/icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/icon-192x192.png">
 </head>
 <body>
     <div class="container">
@@ -14,13 +29,13 @@
             <h1 class="title"><i class="fas fa-magic"></i> 美颜补光灯 <i class="fas fa-star"></i></h1>
             <div class="subtitle">✨ 一键点亮你的盛世美颜 ✨</div>
         </header>
-        
+
         <main>
             <div class="video-container">
                 <video id="video" autoplay playsinline></video>
                 <canvas id="canvas" style="display:none;"></canvas>
             </div>
-            
+
             <div class="controls">
                 <div class="control-group">
                     <h2>滤镜设置</h2>
@@ -30,20 +45,20 @@
                             <input type="range" id="brightness" min="0" max="200" value="100">
                             <span id="brightness-value">100%</span>
                         </div>
-                        
+
                         <div class="filter-option">
                             <label for="saturation">饱和度：</label>
                             <input type="range" id="saturation" min="0" max="200" value="100">
                             <span id="saturation-value">100%</span>
                         </div>
-                        
+
                         <div class="filter-option">
                             <label for="hue-rotate">色相：</label>
                             <input type="range" id="hue-rotate" min="0" max="360" value="0">
                             <span id="hue-rotate-value">0°</span>
                         </div>
                     </div>
-                    
+
                     <div class="filter-presets">
                         <h3>滤镜风格</h3>
                         <div class="preset-buttons">
@@ -57,13 +72,28 @@
                 </div>
             </div>
         </main>
-        
+
         <footer>
             <p><i class="fas fa-heart"></i> 光影魔法 | 你的专属美颜补光神器  <i class="fas fa-camera"></i></p>
             <div class="footer-credits">用爱设计 &copy; 2025</div>
         </footer>
     </div>
-    
+
     <script src="script.js"></script>
+
+    <!-- PWA Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    })
+                    .catch(error => {
+                        console.log('ServiceWorker registration failed: ', error);
+                    });
+            });
+        }
+    </script>
 </body>
 </html>
