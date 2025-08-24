@@ -63,9 +63,11 @@ function applyFilters() {
     video.style.filter = `brightness(${brightness}%) saturate(${saturation}%) hue-rotate(${hueRotate}deg)`;
 }
 
-// 更新背景颜色
+// 更新背景颜色 (暂时禁用，因为没有颜色选择器)
 function updateBackgroundColor() {
-    videoContainer.style.backgroundColor = backgroundColorPicker.value;
+    // videoContainer.style.backgroundColor = backgroundColorPicker.value;
+    // 可以在这里设置默认背景颜色
+    videoContainer.style.backgroundColor = '#f8f9fa';
 }
 
 // 应用预设滤镜
@@ -109,7 +111,7 @@ function setupEventListeners() {
 function init() {
     initCamera();
     setupEventListeners();
-    updateBackgroundColor();
+    // updateBackgroundColor(); // 暂时禁用，因为没有颜色选择器
     
     // 默认选中正常预设
     document.querySelector('[data-preset="normal"]').classList.add('active');
