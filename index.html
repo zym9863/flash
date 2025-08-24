@@ -25,6 +25,27 @@
 </head>
 <body>
     <div class="container">
+        <!-- 加载提示 -->
+        <div id="loading-overlay" class="loading-overlay">
+            <div class="loading-spinner">
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+            </div>
+            <div class="loading-text">
+                <h3>正在启动美颜补光灯</h3>
+                <p id="loading-message">请允许摄像头访问权限...</p>
+            </div>
+        </div>
+
+        <!-- 通知提示 -->
+        <div id="notification" class="notification">
+            <div class="notification-content">
+                <i class="notification-icon"></i>
+                <span class="notification-message"></span>
+            </div>
+        </div>
+
         <header>
             <h1 class="title"><i class="fas fa-magic"></i> 美颜补光灯 <i class="fas fa-star"></i></h1>
             <div class="subtitle">✨ 一键点亮你的盛世美颜 ✨</div>
